@@ -8,8 +8,6 @@ RSpec.feature "CSV Uploads" do
 
     attach_file('Upload Your CSV', file_fixture('users.csv'))
 
-    allow(User).to receive(:import)
-
     click_button('Upload')
 
     expect(page).to have_text('CSV successfully uploaded!')
