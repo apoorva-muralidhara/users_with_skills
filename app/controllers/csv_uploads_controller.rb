@@ -3,5 +3,6 @@ class CsvUploadsController < ApplicationController
   end
 
   def create
+    puts "params is #{params.inspect}!"
   end
 end
