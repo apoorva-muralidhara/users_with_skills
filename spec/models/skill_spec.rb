@@ -7,6 +7,7 @@ RSpec.describe Skill, type: :model do
 
   describe 'associations' do
     it { is_expected.to have_many(:user_skills).dependent(:destroy) }
+    it { is_expected.to have_many(:users).through(:user_skills) }
   end
 
   describe 'validations' do
