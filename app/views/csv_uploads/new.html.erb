@@ -1,1 +1,5 @@
 <h1>Upload your CSV below</h1>
+<%= form_tag csv_uploads_path, multipart: true do %>
+  <label for="file">Upload Your CSV</label><%= file_field_tag :file %>
+  <%= submit_tag 'Upload CSV' %>
+<% end %>
