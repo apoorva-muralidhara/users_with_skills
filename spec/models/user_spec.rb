@@ -9,9 +9,9 @@ RSpec.describe User, type: :model do
   describe '.import' do
     let(:path) { file_fixture('three_users.csv') }
 
-    it 'creates users' do
-      User.import(path)
+    before { User.import(path) }
 
+    it 'creates users' do
       expect(User.count).to eq(3)
       expect(User.find_by!(email: 'scott.baker@ux.io'))
         .to have_attributes(name: 'Scott Baker',
@@ -19,6 +19,12 @@ RSpec.describe User, type: :model do
                             timezone: 'PST',
                             receive_marketing: false,
                             external_identifier: 's7754756893610')
+    end
+
+    it 'creates skills' do
+      expect(Skill.count).to eq(3)
+      expect(Skill.pluck(:name))
+        .to match_array(%w(Dancing Prancing Chancing))
     end
   end
 end

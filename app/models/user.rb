@@ -13,6 +13,12 @@ class User < ApplicationRecord
                    timezone: csv_values['_timezone'],
                    receive_marketing: (csv_values['receive_marketing'] == 't'),
                    external_identifier: csv_values['external_id'])
+
+      next unless csv_values['Skills'].present?
+      
+      csv_values['Skills'].split(',').each do |name|
+        Skill.find_or_create_by!(name: name.strip)
+      end
      end
   end
 end
