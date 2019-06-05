@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "CSV Uploads", type: :feature do
+RSpec.feature "CSV Uploads" do
   scenario "Uploading CSV successfully" do
     visit root_path
 
