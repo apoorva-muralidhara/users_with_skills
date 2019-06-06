@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
   def index
-    render json: { }, status: :ok
+    render json: User.all
   end
 end
